@@ -1,0 +1,39 @@
+<style>
+	th, td {
+padding: 15px;
+}
+</style>
+
+
+	<hr>
+	
+	<% if(music!=null) { %>
+	<table border="1px">
+	<tr>
+			<th>Songname</th>
+			<th>Film </th>
+			<th>Music_director </th>
+			<th>singer </th>
+			<th>actor</th>
+			<th>actresss</th>
+			<th>Delete Song</th>
+	</tr>
+	<% music.forEach(function(item){ %>
+	<tr> 
+			<td><%= item.Songname%></td>
+			<td><%= item.Film %></td>
+			<td><%= item.Music_Director%></td>
+			<td><%= item.singer %></td>
+			<td><%= item.actor %></td>
+			<td><%= item.actress %></td>
+			<td>
+					<form method="post" action="/deleteSongs/<%= item._id %>">
+							<button type="submit">Delete</button>
+					</form>
+			</td>
+			
+	</td>
+	</tr>
+	<% }) %>
+	</table>
+	<% } %>
