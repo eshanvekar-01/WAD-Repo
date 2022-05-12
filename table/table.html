@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+    <title>Create dynamic table in JavaScript</title>
+    <style>
+       
+      .input{
+          border:none;
+          font-size:10px;
+      }
+      .input:focus{
+          outline:none;
+      }
+    </style>
+ 
+</head>
+<body>
+
+<table>
+</table>
+    <input type="text" id="rows1" placeholder="enter no of rows"> 
+    <input type="text" id="columns1" placeholder="enter no of columns"> 
+    <input type="text" id="startval1" placeholder="enter start value"> 
+    <input type="text" id="rows2" placeholder="enter no of rows"> 
+    <input type="text" id="columns2" placeholder="enter no of columns"> 
+    <input type="text" id="startval2" placeholder="enter start value"> 
+    <button id="fetch" type="submit">Submit</button>
+    <div id="container"></div>
+
+
+    <script type="text/javascript">
+
+        document.getElementById('fetch').onclick = function(){
+            let rows = document.getElementById('rows1').value
+            let columns = document.getElementById('columns1').value
+            let startval1 = document.getElementById('startval1').value
+            var temp=1;
+            var output = '<table border="1px">'
+            for(var i=1;i<=columns;i++)
+            {
+                output = output + '<tr>'
+                for(var j=1;j<=rows;j++)
+                {
+                    let count = (parseInt(temp*startval1)+parseInt(j)-1)*(parseInt(i));
+                    output = output + '<td>'+count+'</td>'
+                }
+                output = output + '</tr>'
+            }
+            output = output + '</table>'
+            let rows2 = document.getElementById('rows2').value
+            let columns2 = document.getElementById('columns2').value
+            let startval2 = document.getElementById('startval2').value
+            var temp=1;
+             output = output + '<br> ' +  '<table border="1px">'
+            for(var i=1;i<=columns2;i++)
+            {
+                output = output + '<tr>'
+                for(var j=1;j<=rows2;j++)
+                {
+                    let count = (parseInt(temp*startval2)+parseInt(j)-1)*(parseInt(i));
+                    output = output + '<td>'+count+'</td>'
+                }
+                output = output + '</tr>'
+            }
+            output = output + '</table>'
+            console.log(output)
+            document.getElementById('container').innerHTML = output
+        }
+
+        
+        </script>
+</body>
+</html>
