@@ -17,6 +17,7 @@ padding: 15px;
 			<th>actor</th>
 			<th>actresss</th>
 			<th>Delete Song</th>
+			<th>Update Actors</th>
 	</tr>
 	<% music.forEach(function(item){ %>
 	<tr> 
@@ -30,6 +31,13 @@ padding: 15px;
 					<form method="post" action="/deleteSongs/<%= item._id %>">
 							<button type="submit">Delete</button>
 					</form>
+			</td>
+			<td>
+				<form method="post" action="/updateActors/<%=item._id%>">
+					<input type="text" name="actor" placeholder="actor name"><br>
+					<input type="text" name="actress" placeholder="actress name">
+					<input type="submit" value="update">
+				</form>
 			</td>
 			
 	</td>

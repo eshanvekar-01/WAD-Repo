@@ -68,10 +68,22 @@ app.get('/getDirectorSongs', (req, res) => {
 	})
 })
 
+app.get('/getDirectorAndSingerSongs', (req, res) => {
+	Music.find(req.query)
+	.then((music) => {
+		res.render("table", {music:music})
+	}).catch(err => {
+		res.json({"message": err})
+	})
+})
+
 app.post('/updateActors/:id', (req, res) => {
-	Music.findByIdAndUpdate(req.params.id, req.body)
+	Music.findByIdAndUpdate(req.params.id, {actor: req.body.actor, actress: req.body.actress})
 	.then(music => {
 		console.log('Successfully Updated')
+		res.redirect('/getSongs')
+	}).catch(err => {
+		res.json({"message": err})
 	})
 })
 
