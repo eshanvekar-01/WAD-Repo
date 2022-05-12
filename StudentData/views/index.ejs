@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <title>Intro to Node and MongoDB</title>
+ </head>
+ 
+ <body>
+ <h1>Student Information</h1>
+ <form method="post" action="/addstudent">
+ <label>Enter Your Favouorite song</label><br>
+ <input type="text" name="Name" placeholder="Enter Name..." required>
+ <input type="text" name="RollNo" placeholder="Enter RollNo..." required>
+ <input type="number" name="WadMarks" placeholder="Enter WADMarks.." required>
+ <input type="number" name="CCMarks" placeholder="Enter CCMarks..." required>
+ <input type="number" name="DSBDAMarks" placeholder="Enter DSBDAMarks..." required>
+ <input type="number" name="CNSMarks" placeholder="Enter CNSMarks..." required>
+ <input type="submit" value="Add student">
+ </form>
+
+ <a href="/getStudents">View Students</a>
+ </body>
+</html>
